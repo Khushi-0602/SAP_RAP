@@ -1,0 +1,18 @@
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'PROJECTION VIEW'
+@Metadata.ignorePropagatedAnnotations: true
+@Metadata.allowExtensions: true
+define root view entity ZKA_C_VENDOR
+  provider contract transactional_query 
+as projection on  ZKA_I_VENDOR
+
+{ 
+    key VendorUuid,
+    Vendor,
+    Vendor_name,
+    country,
+    city,
+    _COUNTRY,
+    _ekko : redirected to composition child ZKA_C_EKKO
+   
+}
