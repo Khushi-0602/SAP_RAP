@@ -1,0 +1,47 @@
+managed implementation in class zbp_ka_i_vendor unique;
+strict ( 2 );
+
+define behavior for ZKA_I_VENDOR //alias <alias_name>
+persistent table zka_vendor_1
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+  field ( readonly ) VendorUuid;
+  field (numbering : managed) VendorUuid;
+  association _ekko { create; }
+  mapping for ZKA_VENDOR_1
+  {
+  VendorUuid = vendoruuid;
+  Vendor = lifnr;
+  Vendor_name = name;
+  country = land1;
+  city = ort01;
+  }
+
+}
+
+define behavior for ZKA_I_EKKO //alias <alias_name>
+persistent table zka_ekko
+lock dependent by _vendor
+authorization dependent by _vendor
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) Vendoruuid, PoId;
+  field (numbering : managed) PoId;
+  association _vendor;
+  mapping for ZKA_EKKO
+  {
+    Vendoruuid = vendoruuid;
+    PoId = po_id;
+    Purchaseno = purchaseno;
+    Comcode = comcode;
+    Doccat  = doccat;
+    Doctype = doctype;
+    }
+}
