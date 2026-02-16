@@ -1,0 +1,16 @@
+@EndUserText.label : 'EKKO TABLE'
+@AbapCatalog.enhancement.category : #NOT_EXTENSIBLE
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #RESTRICTED
+define table zka_ekko {
+
+  key client     : abap.clnt not null;
+  key vendoruuid : sysuuid_x16 not null;
+  key po_id      : sysuuid_x16 not null;
+  purchaseno     : zka_purchase_no;
+  comcode        : zka_company_code;
+  doccat         : zka_doc_category;
+  doctype        : zka_doc_type;
+
+}
