@@ -1,0 +1,5 @@
+@EndUserText.label: 'SERVICE DEFINITION VENDOR'
+define service ZKA_SD_VENDOR_2 {
+  expose ZKA_C_VENDOR;
+  expose ZKA_C_EKKO;
+}
