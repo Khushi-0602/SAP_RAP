@@ -1,0 +1,59 @@
+@Metadata.layer: #CORE
+
+@UI : { 
+
+   headerInfo : { 
+   typeName: 'Vendor',
+   typeNamePlural: 'Vendor Details',
+   title : { type: #STANDARD, value: 'Vendor_name' },
+              description : {  value: 'Vendor' }
+   }
+}
+annotate view ZKA_C_VENDOR
+    with 
+{
+
+@UI.facet: [{ 
+
+      id :  'IdIdentification',
+      purpose : #STANDARD,
+      label : 'Vendor Details',
+      type : #IDENTIFICATION_REFERENCE,
+      position : 10
+      
+      },
+      { 
+      id :  'EKKO',
+      purpose : #STANDARD,
+      label : 'Purchase Doc Header Data',
+      type : #LINEITEM_REFERENCE,
+      position : 20,
+      targetElement: '_ekko'
+      
+      
+       }
+      
+      
+      ]
+  
+  @UI : { lineItem: [{ position : 10 }] ,
+          identification: [{ position: 10 }]   }
+   VendorUuid;
+    @UI : { lineItem: [{ position : 20 }] ,
+          identification: [{ position: 20 }] ,
+          selectionField: [{ position: 10 }]  }
+   Vendor;
+    @UI : { lineItem: [{ position : 30 }] ,
+          identification: [{ position: 30 }]  ,
+          selectionField: [{ position: 20 }] }
+   Vendor_name;
+    @UI : { lineItem: [{ position : 40 }] ,
+          identification: [{ position: 40 }]   }
+     @Consumption.valueHelpDefinition: [{ entity :{ name: 'ZKA_COUNTRY_DOMAIN',
+                                                     element: 'DESCRIPTION' }}]
+   country;
+    @UI : { lineItem: [{ position : 50 }] ,
+          identification: [{ position: 50 }]   }
+   city; 
+    
+}
