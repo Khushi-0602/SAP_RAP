@@ -1,0 +1,48 @@
+@Metadata.layer: #CORE
+@UI : { 
+
+   headerInfo : { 
+   typeName: 'Purchase order',
+   typeNamePlural: 'Purchase Order Details',
+    title : { type: #STANDARD, value: 'Purchaseno' },
+              description : {  value: 'Comcode' }
+   }
+}
+annotate view ZKA_C_EKKO
+    with 
+    
+{
+  @UI.facet: [{ 
+
+      id :  'EKKO',
+      purpose : #STANDARD,
+      label : 'Purchase Doc Header Data',
+      type : #IDENTIFICATION_REFERENCE,
+      position : 10
+      
+      }]
+      
+  @UI : { lineItem: [{ position : 10, label: 'Vendor Id'  }] ,
+          identification: [{ position: 10 }]   }
+  Vendoruuid;
+  @UI : { lineItem: [{ position : 20, label: 'PO Id' }] ,
+          identification: [{ position: 20 }]   }
+  PoId;
+  @UI : { lineItem: [{ position : 30 }] ,
+          identification: [{ position: 30 }]   }
+  Purchaseno;
+  @UI : { lineItem: [{ position : 40 }] ,
+          identification: [{ position: 40 }]   }
+  Comcode;
+  @UI : { lineItem: [{ position : 50 }] ,
+          identification: [{ position: 50 }]   }
+  Doccat;
+  @UI : { lineItem: [{ position : 60 }] ,
+          identification: [{ position: 60 }]   }
+  Doctype;
+ /* Associations */
+ @UI : { lineItem: [{ position : 70 }] ,
+          identification: [{ position: 70 }]   }
+  _vendor;
+    
+}
