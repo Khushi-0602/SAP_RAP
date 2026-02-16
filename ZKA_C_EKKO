@@ -1,0 +1,16 @@
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'CONSUMPTION VIEW FOR EKKO'
+@Metadata.ignorePropagatedAnnotations: true
+@Metadata.allowExtensions: true
+define view entity ZKA_C_EKKO 
+as projection on ZKA_I_EKKO
+{
+    key Vendoruuid,
+    key PoId,
+    Purchaseno,
+    Comcode,
+    Doccat,
+    Doctype,
+    /* Associations */
+    _vendor : redirected to parent ZKA_C_VENDOR
+}
