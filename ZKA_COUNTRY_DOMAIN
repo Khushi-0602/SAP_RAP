@@ -1,0 +1,19 @@
+@AbapCatalog.viewEnhancementCategory: [#NONE]
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'CDS View entity for domain country'
+@Metadata.ignorePropagatedAnnotations: true
+@ObjectModel.usageType:{
+      serviceQuality: #X,
+      sizeCategory: #S,
+      dataClass: #MIXED
+   } 
+define view entity ZKA_COUNTRY_DOMAIN 
+as select from DDCDS_CUSTOMER_DOMAIN_VALUE_T( p_domain_name:'ZKA_COUNTRY' )
+{
+    @UI.hidden: true
+    key domain_name,
+    key value_position,
+    key language,
+    value_low as VALUE,
+    text as DESCRIPTION
+}
