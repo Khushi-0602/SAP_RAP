@@ -1,0 +1,17 @@
+@AbapCatalog.viewEnhancementCategory: [#NONE]
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'Interface view for EKKO'
+@Metadata.ignorePropagatedAnnotations: true
+define view entity ZKA_I_EKKO 
+as select from zka_ekko
+association to parent ZKA_I_VENDOR as _vendor
+on $projection.VendorUuid = _vendor.VendorUuid
+{
+    key vendoruuid as VendorUuid,
+    key po_id as PoId,
+    purchaseno as Purchaseno,
+    comcode as Comcode,
+    doccat as Doccat,
+    doctype as Doctype,
+    _vendor
+}
