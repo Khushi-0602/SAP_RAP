@@ -1,0 +1,15 @@
+@EndUserText.label : 'TABLE FOR VENDOR'
+@AbapCatalog.enhancement.category : #NOT_EXTENSIBLE
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #RESTRICTED
+define table zka_vendor_1 {
+
+  key client     : abap.clnt not null;
+  key vendoruuid : sysuuid_x16 not null;
+  lifnr          : zka_lifnr;
+  name           : zka_name;
+  land1          : zka_land;
+  ort01          : zka_ort01;
+
+}
